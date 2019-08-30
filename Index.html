@@ -23,6 +23,10 @@
 				}
 			};
 
+			var bind = function protoBind(obj , func) {
+				return func.call(obj);
+			}
+
 			var tourist2 = {
 
 				name : 'James',
@@ -41,12 +45,10 @@
 				nation : 'Norway',
 			};
 
-			tourist2.getInfoAboutTourist = tourist.getInfoAboutTourist.bind(tourist2);
-			tourist3.getInfoAboutTourist = tourist.getInfoAboutTourist.bind(tourist3);
 
 			console.log(tourist.getInfoAboutTourist());
-			console.log(tourist2.getInfoAboutTourist());
-			console.log(tourist3.getInfoAboutTourist());
+			console.log(bind(tourist2 ,tourist.getInfoAboutTourist));
+			console.log(bind(tourist3 ,tourist.getInfoAboutTourist));
 
 
 			// task 2 
@@ -82,7 +84,24 @@
 			}
 
 
-			console.log(protoMAp(arr))
+			// console.log(protoMAp(arr))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
 		</script>
 
 		

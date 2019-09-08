@@ -23,9 +23,6 @@
 				}
 			};
 
-			var bind = function protoBind(obj , func) {
-				return func.call(obj);
-			}
 
 			var tourist2 = {
 
@@ -45,10 +42,49 @@
 				nation : 'Norway',
 			};
 
+		
+			function myBind(obj , fn) {
 
-			console.log(tourist.getInfoAboutTourist());
-			console.log(bind(tourist2 ,tourist.getInfoAboutTourist));
-			console.log(bind(tourist3 ,tourist.getInfoAboutTourist));
+				return function() {
+					return fn.call(obj);
+				}
+			}
+
+			var tourist2FullNAme = myBind(tourist2, tourist.getInfoAboutTourist);
+			var tourist3FullNAme = myBind(tourist3, tourist.getInfoAboutTourist);
+
+			console.log(tourist2FullNAme());
+			console.log(tourist3FullNAme());
+
+	
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 			// task 2 
